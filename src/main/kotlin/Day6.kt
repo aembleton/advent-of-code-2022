@@ -8,12 +8,7 @@ fun main() {
 
 object Day6 {
 
-    fun findMarker(dataStream:String, distinctChars:Int):Int {
-        dataStream.windowed(distinctChars, 1).forEachIndexed { index, s ->
-            if (s.toSet().size == distinctChars) {
-                return index + distinctChars
-            }
-        }
-        return -1
-    }
+    fun findMarker(dataStream:String, distinctChars:Int) = dataStream
+        .windowed(distinctChars,1)
+        .indexOfFirst { it.toSet().size == distinctChars } + distinctChars
 }
